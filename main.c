@@ -1,15 +1,16 @@
 /* 
  * File    :    main.c
- * Author  :    Deepanshu Thakur and Harshit Parakh
+ * Author  :    Deepanshu Thakur 
+ * Author  :    Harshit Parakh
  * Version :    1.0
- * Created on October 18, 2014, 2:13 AM
+ * Created on October 18, 2014, 2:21 AM
  */
 
 #include<stdio.h>
 #include<malloc.h>
 
 
-struct node  //Declaring a user defined variable named node 
+struct node   //Declaring a user defined variable named node 
 {
     float info;
     struct node *link;
@@ -77,16 +78,16 @@ int main(int argc, char** argv)
     
     n->link=root;  
     /*
-    * With this statement I have made link-list circular!
-    * So now starting node have the address of the last node!
-    */
+     * With this statement I have made link-list circular!
+     * So now starting node have the address of the last node!
+     */
     
     
     printf("Please enter the value of the nth person\n");
     scanf("%f",&value); 
     /*
-     *This will be the value of n (the person number to be killed)
-    */
+     * This will be the value of n (the person number to be killed)
+     */
     
     printf("\n");
     printf("Very good! ;) Keep it You played very well\n");
@@ -129,4 +130,5 @@ int main(int argc, char** argv)
     return 0;
 }
 
-//end of game
+//end of game!
+
