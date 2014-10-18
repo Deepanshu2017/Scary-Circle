@@ -99,8 +99,11 @@ int main(int argc, char** argv)
 
     printf("\n");
 
-    printf("How you want monster to kill person Clockwise (1) or");
-    printf(" Anti-clockwise (2)\n <1/2>\n");
+    printf("How you want monster to kill person..?\n");
+    printf("Press: \n");
+    printf("1. Clockwise \n");
+    printf("2. Anti-clockwise \n");
+    printf("Enter your choice:\n");
     scanf("%d",&Clock_Choice);
     
     /*
@@ -108,9 +111,9 @@ int main(int argc, char** argv)
      * or Anti-Clockwise
      */
 
-    printf("Very good! ;) Keep it You played very well\n");
-    printf("Now I will play a game with you\n");
-    printf("Choose a position for you before getting the result\n");
+    printf("Very good! Keep it up. You played very well\n");
+    printf("The game is not yet over !!\n");
+    printf("Choose a position for you in the circle \n");
     printf("Lets see I will kill you or you will be the safe person\n");
 
     scanf("%d",&My_Choice);
@@ -180,7 +183,8 @@ int main(int argc, char** argv)
     if(flag==1)
         printf("\nMy bad luck you win\n");
     else
-        printf("\nYou have eaten by me ;)\n");
+        printf("\nYou have eaten by me\n");
+        printf("GAME OVER");
     return 0;
 }
 
