@@ -9,6 +9,7 @@
 /*
  * This is a doubly circular link-list!
  */
+ 
 #include<stdio.h>
 #include<malloc.h>
 
@@ -28,11 +29,12 @@ int main(int argc, char** argv)
      */
 
     struct node *root,*n,*temp,*k,*p;
-    float i=0,j=0,a=0,b=0,c=0,value=0;
-    int count=0,flag=0,ch=0;
+    float i=0, j=0, Starting_Value=0, Last_Value=0, Choosen_Value=0, Per_Value=0;
+    int My_Choice=0,Clock_Choice=0, flag=0;
 
     root=NULL; //Initializing root with NULL
 
+   
     printf("\n**********//// THE MAGIC BEGAINS NOW! ;) ////**********\n");
     printf("\nSuppose these is a monster who kills every nth person standing in a circle\n");
     printf("Suppose you can start a circle of people with any integer number you want!\n");
@@ -44,7 +46,7 @@ int main(int argc, char** argv)
      */
 
     printf("So give the staring number\n");
-    scanf("%f",&a);
+    scanf("%f",&Starting_Value);
 
     /*
      * Now give the end point of the Circle!
@@ -52,7 +54,7 @@ int main(int argc, char** argv)
 
 
     printf("Now give me the last number of the circle ;)\n");
-    scanf("%f",&b);
+    scanf("%f",&Last_Value);
 
     /*
      * Now in this loop node type variable containing information part and
@@ -61,7 +63,7 @@ int main(int argc, char** argv)
      * of inputs!
      */
 
-    for(i=a;i<=b;i++)
+    for(i=Starting_Value; i<=Last_Value; i++)
     {
         n=(struct node *)malloc(sizeof(struct node));
         n->info=i;
@@ -81,6 +83,7 @@ int main(int argc, char** argv)
 
     root->link2=n;
     n->link=root;
+    
     /*
      * With these statements I have made link-list circular!
      * So now starting node have the address of the last node!
@@ -88,7 +91,8 @@ int main(int argc, char** argv)
 
 
     printf("Please enter the value of the nth person\n");
-    scanf("%f",&value);
+    scanf("%f",&Per_Value);
+    
     /*
      * This will be the value of n (the person number to be killed)
      */
@@ -97,7 +101,8 @@ int main(int argc, char** argv)
 
     printf("How you want monster to kill person Clockwise (1) or");
     printf(" Anti-clockwise (2)\n <1/2>\n");
-    scanf("%d",&ch);
+    scanf("%d",&Clock_Choice);
+    
     /*
      * This will be the value which decide the loop will run Clockwise
      * or Anti-Clockwise
@@ -106,37 +111,37 @@ int main(int argc, char** argv)
     printf("Very good! ;) Keep it You played very well\n");
     printf("Now I will play a game with you\n");
     printf("Choose a position for you before getting the result\n");
-    printf("Lets see I wll kill you or you will be the safe person\n");
+    printf("Lets see I will kill you or you will be the safe person\n");
 
-    scanf("%d",&count);
-    value=value-1;
-    c=b-a+1;
+    scanf("%d",&My_Choice);
+    Per_Value = Per_Value-1;
+    Choosen_Value = Last_Value-Starting_Value+1;
 
 
-    if(ch==2)
+    if(Clock_Choice==2)
     {
-        while(c>value)
+        while(Choosen_Value > Per_Value)
         {
-            for(i=0;i<value;i++)
+            for(i=0; i<Per_Value; i++)
             {
-                if(i==value-1)
+                if(i == Per_Value-1)
                 	p=root;
-                root=root->link2;
+                root = root->link2;
             }
-            p->link2=root->link2;
-            root=p->link2;
-            c--;
+            p->link2 = root->link2;
+            root = p->link2;
+            Choosen_Value--;
         }
 
-        k=root;
-        if(count==root->info)
+        k = root;
+        if(My_Choice == root->info)
         	flag=1;
         printf("The value is %0.f\n",root->info);
-        root=root->link2;
+        root = root->link2;
         while(root!=k)
         {
             printf("The value is %0.f\n",root->info);
-            if(count==root->info)
+            if(My_Choice==root->info)
         	flag=1;
             root=root->link2;
         }
@@ -144,28 +149,28 @@ int main(int argc, char** argv)
 
     else
     {
-        while(c>value)
+        while(Choosen_Value > Per_Value)
         {
-            for(i=0;i<value;i++)
+            for(i=0; i<Per_Value; i++)
             {
-                if(i==value-1)
+                if(i==Per_Value-1)
                     p=root;
                 root=root->link;
             }
             p->link=root->link;
             root=p->link;
-            c--;
+            Choosen_Value--;
         }
 
         k=root;
-        if(count==root->info)
+        if(My_Choice==root->info)
            flag=1;
         printf("The value is %0.f\n",root->info);
         root=root->link;
         while(root!=k)
         {
             printf("The value is %0.f\n",root->info);
-            if(count==root->info)
+            if(My_Choice==root->info)
                 flag=1;
             root=root->link;
         }
