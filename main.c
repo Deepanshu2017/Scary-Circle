@@ -9,7 +9,7 @@
 /*
  * This is a doubly circular link-list!
  */
- 
+
 #include<stdio.h>
 #include<malloc.h>
 
@@ -24,9 +24,17 @@ struct node   //Declaring a user defined variable named node
 int main(int argc, char** argv)
 {
 
-    /*
-     * Creating and Initializing variables of type node,integer and float point
-     */
+    int Test_cases=0;
+
+    printf("\n**********//// THE MAGIC BEGAINS NOW! ;) ////**********\n");
+
+    printf("Enter how many times you want to run program: ");
+    scanf("%d",&Test_cases);
+    while(Test_cases--){
+
+   /*
+    * Creating and Initializing variables of type node,integer and float point
+    */
 
     struct node *root,*n,*temp,*k,*p;
     float i=0, j=0, Starting_Value=0, Last_Value=0, Choosen_Value=0, Per_Value=0;
@@ -34,8 +42,6 @@ int main(int argc, char** argv)
 
     root=NULL; //Initializing root with NULL
 
-   
-    printf("\n**********//// THE MAGIC BEGAINS NOW! ;) ////**********\n");
     printf("\nSuppose these is a monster who kills every nth person standing in a circle\n");
     printf("Suppose you can start a circle of people with any integer number you want!\n");
 
@@ -83,7 +89,7 @@ int main(int argc, char** argv)
 
     root->link2=n;
     n->link=root;
-    
+
     /*
      * With these statements I have made link-list circular!
      * So now starting node have the address of the last node!
@@ -92,7 +98,7 @@ int main(int argc, char** argv)
 
     printf("Please enter the value of the nth person\n");
     scanf("%f",&Per_Value);
-    
+
     /*
      * This will be the value of n (the person number to be killed)
      */
@@ -105,7 +111,7 @@ int main(int argc, char** argv)
     printf("2. Anti-clockwise \n");
     printf("Enter your choice:\n");
     scanf("%d",&Clock_Choice);
-    
+
     /*
      * This will be the value which decide the loop will run Clockwise
      * or Anti-Clockwise
@@ -184,7 +190,9 @@ int main(int argc, char** argv)
         printf("\nMy bad luck you win\n");
     else
         printf("\nYou have eaten by me\n");
-        printf("GAME OVER");
+    free(n);
+    }
+    printf("GAME OVER");
     return 0;
 }
 
