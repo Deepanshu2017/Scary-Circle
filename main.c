@@ -6,9 +6,11 @@
  * Created on October 18, 2014, 2:21 AM
  */
 
+
 /*
  * This is a doubly circular link-list!
  */
+
 
 #include<stdio.h>
 #include<malloc.h>
@@ -24,12 +26,12 @@ struct node   //Declaring a user defined variable named node
 int main(int argc, char** argv)
 {
 
-    int Test_cases=0;
+    float Test_cases=0;
 
     printf("\n**********//// THE MAGIC BEGAINS NOW! ;) ////**********\n");
 
     printf("Enter how many times you want to run program: ");
-    scanf("%d",&Test_cases);
+    scanf("%f",&Test_cases);
     while(Test_cases--){
 
    /*
@@ -193,6 +195,7 @@ int main(int argc, char** argv)
     free(n);
     }
     printf("GAME OVER");
+    printf("Thanks for playing and showing your intrest!");
     return 0;
 }
 
