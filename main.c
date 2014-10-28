@@ -1,6 +1,7 @@
 /*
  * File    :    main.c
  * Author  :    Deepanshu Thakur
+ * Author  :    Anurag Sharma
  * Author  :    Harshit Parakh
  * Version :    1.0
  * Created on October 18, 2014, 2:21 AM
