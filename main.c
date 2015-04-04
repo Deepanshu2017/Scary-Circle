@@ -19,7 +19,7 @@
 
 struct node {   //Declaring a user defined variable named node
 
-	float info;
+    float info;
     struct node *link;
     struct node *link2;
 };
@@ -30,10 +30,10 @@ int main(int argc, char** argv) {
     * Creating and Initializing variables of type node,integer and float point
     */
 
-	struct node *root,*n,*temp,*k,*p;
-    float i=0, j=0, Starting_Value=0, Last_Value=0, Choosen_Value=0, Per_Value=0;
-    int My_Choice=0,Clock_Choice=0, flag=0;
-    float Test_cases=0;
+    struct node *root, *n, *temp, *k, *p;
+    float i = 0, j = 0, Starting_Value = 0, Last_Value = 0, Choosen_Value = 0, Per_Value = 0;
+    int My_Choice = 0, Clock_Choice = 0, flag = 0;
+    float Test_cases = 0;
 
     printf("\n**********//// THE MAGIC BEGAINS NOW! ////**********\n");
 
@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
     scanf("%f",&Test_cases);
     while(Test_cases--) {
 
-		root=NULL; //Initializing root with NULL
+	root = NULL; //Initializing root with NULL
 
     	printf("\nSuppose these is a monster who kills every nth person standing in a circle\n");
     	printf("Suppose you can start a circle of people with any integer number you want!\n");
@@ -55,45 +55,45 @@ int main(int argc, char** argv) {
     	printf("So give the staring number\n");
     	scanf("%f",&Starting_Value);
 	
-	    /*
-	     * Now give the end point of the Circle!
-	     */	
+	/*
+	* Now give the end point of the Circle!
+	*/	
 
 
-	    printf("Now give me the last number of the circle\n");
-	    scanf("%f",&Last_Value);
+	printf("Now give me the last number of the circle\n");
+	scanf("%f",&Last_Value);
 	
-	    /*
-	     * Now in this loop node type variable containing information part and
-	     * location part (link part) will be initialized with numbers from a to b
-	     * and the total number of node created will be equal to the total number
-	     * of inputs!
-	     */
+	/*
+	* Now in this loop node type variable containing information part and
+	* location part (link part) will be initialized with numbers from a to b
+	* and the total number of node created will be equal to the total number
+	* of inputs!
+	*/
 	
-	    for(i = Starting_Value; i <= Last_Value; ++i) {
+	for(i = Starting_Value; i <= Last_Value; ++i) {
 	    
-	        n = (struct node *)malloc(sizeof(struct node));
-	        n->info = i;
-		    n->link = NULL;
+	    n = (struct node *)malloc(sizeof(struct node));
+	    n->info = i;
+	    n->link = NULL;
     	    if(root==NULL) {
             	root = n;
             	root->link2 = NULL;
         
-    		}	
-        	else {
+    	    }	
+            else {
             	n->link2 = temp;
             	temp->link = n;
-        	}
-        	temp=n;
+            }
+            temp = n;
     	}
 
     	root->link2 = n;
     	n->link = root;
 
     	/*
-	 	* With these statements I have made link-list circular!
-     	* So now starting node have the address of the last node!
-     	*/
+	 * With these statements I have made link-list circular!
+     	 * So now starting node have the address of the last node!
+     	 */
 
 
     	printf("Please enter the value of the nth person\n");
@@ -124,78 +124,78 @@ int main(int argc, char** argv) {
 	
     	scanf("%d",&My_Choice);
     	Per_Value = Per_Value-1;
-    	Choosen_Value = Last_Value-Starting_Value+1;
+    	Choosen_Value = Last_Value - Starting_Value + 1;
 
 
     	if(Clock_Choice == 2) {
     	    while(Choosen_Value > Per_Value) {
-        	    for(i = 0; i < Per_Value; ++i) {
+        	for(i = 0; i < Per_Value; ++i) {
             	    
-                	if(i == Per_Value-1)
-                		p=root;
+                    if(i == Per_Value-1)
+                        p=root;
            
                 
-                	root = root->link2;
+                    root = root->link2;
             	}
             
             	p->link2 = root->link2;
             	root = p->link2;
             	--Choosen_Value;
-        	}
+            }
 
-        	k = root;
+            k = root;
         
-        	if(My_Choice == root->info)
-        		flag = 1;
+            if(My_Choice == root->info)
+                flag = 1;
         
         
-        	printf("The value is %0.f\n",root->info);
-        	root = root->link2;
-        	while(root != k) {
+            printf("The value is %0.f\n",root->info);
+            root = root->link2;
+            while(root != k) {
             	printf("The value is %0.f\n",root->info);
             	
             	if(My_Choice == root->info)
-        			flag = 1;
+                    flag = 1;
             	
             	
             	root = root->link2;
-        	}	
+            }	
     	}
 
     	else {
-        	while(Choosen_Value > Per_Value) {
-        	    for(i = 0; i < Per_Value; ++i) {
+            while(Choosen_Value > Per_Value) {
+                for(i = 0; i < Per_Value; ++i) {
                 
-        	        if(i == Per_Value-1)
+        	    if(i == Per_Value-1)
             	        p = root;
                 	
                 
-                	root = root->link;
+                    root = root->link;
             	}
             
             	p->link = root->link;
             	root = p->link;
             	--Choosen_Value;
-        	}
+            }
 
-        	k = root;
+            k = root;
         
-        	if(My_Choice == root->info)
-           		flag=1;
+            if(My_Choice == root->info)
+                flag = 1;
         
         
-        	printf("The value is %0.f\n",root->info);
-        	root = root->link;
+            printf("The value is %0.f\n",root->info);
+            root = root->link;
         
-        	while(root != k) {
+            while(root != k) {
             	printf("The value is %0.f\n",root->info);
             
             	if(My_Choice == root->info)
-                	flag = 1;
+                    flag = 1;
             
             
             	root = root->link;
-        	}
+            }
     	}
 
 
